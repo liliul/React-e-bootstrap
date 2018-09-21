@@ -2,7 +2,24 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import registerServiceWorker from './registerServiceWorker';
+import Releases from './container/Releases';
+import Backlog from './container/Backlog';
+import Sprints from './container/Sprints';
+import Home from './container/Home';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import registerServiceWorker from './registerServiceWorker';
+import {Router, Route, IndexRoute, hashHistory } from 'react-router';
+
+
+ReactDOM.render(
+	<Router history={hashHistory}>
+		<Route path='/' component={App} >
+			<IndexRoute component={Home} />
+			<Route path='/Releases' component={Releases} />
+			<Route path='/Backlog' component={Backlog} />
+			<Route path='/Sprints' component={Sprints} />
+		</Route>	
+	</Router>
+	, document.getElementById('root'));
 registerServiceWorker();
+ 

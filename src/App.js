@@ -11,7 +11,7 @@ class App extends Component {
     return (
       <div className="container">
         <Nav logo={logo}/>
-        <Home />
+       {this.props.children}
       </div>
     );
   }
